@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/1c9ad4b785.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- jQuery and JS from CDN (should be placed before JS and only in body section) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- !! added type="text/javascript" for BUBBLES -->
+    <script src="js/script.js" type="text/javascript" defer></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Water</title>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg sticky glassy ">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-image">
+                <img src="images/water-drop.png" width="40%" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://localhost:3000">Drink water!</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Your progress
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="http://localhost:3000/calculate">Calculate your water
+                                    goal</a></li>
+                            <li><a class="dropdown-item" href="http://localhost:3000/remove">Remove your progress</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item" href="http://localhost:3000/calculate#about">About project</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="http://localhost:3000/calculate#contacts">Contacts</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- SECTION WATER MENU -->
+    <section class="menu">
+        <div class="water-menu">
+            <div class="water-info">
+                <div class="remained">
+                    <h3>Remained: <span name="remainedWater" id="remained-water">2L</span></h3>
+                </div>
+                <div class="big-cup">
+
+                </div>
+                <div class="percentage water-inside" id="percentage">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" style="display: none;">
+                        <symbol id="wave-small">
+                            <path
+                                d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                                d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                                d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z">
+                            </path>
+                            <path
+                                d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z">
+                            </path>
+                        </symbol>
+                    </svg>
+                    <div class="box">
+                        <div class="percent">
+                            <div class="percentNum" id="count" name="percent">0</div>
+                            <div class="percentB">%</div>
+
+                        </div>
+                        <div id="water" class="water">
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                                <use xlink:href="#wave-small"></use>
+                            </svg>
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                                <use xlink:href="#wave-small"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="goal">
+
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false"
+                        data-bs-interval="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/water-glass/glass-1.png" class="d-block image-center-1" alt="...">
+                                <h1>100 <span>ml</span></h1>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/water-glass/glass-2.png" class="d-block" alt="...">
+                                <h1>200 <span>ml</span></h1>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/water-glass/glass-3.png" class="d-block image-center-3" alt="...">
+                                <h1>300 <span>ml</span></h1>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/water-glass/glass-4.png" class="d-block" alt="...">
+                                <h1>400 <span>ml</span></h1>
+                            </div>
+                        </div>
+
+                        <div class="drink-water">
+                            <h3>Drink Water</h3>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="buttons-select">
+                    <button class="btn-select remove me-3">-</button>
+                    <button class="btn-select add">+</button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- SECTION WHITE AND WAVES -->
+
+    <section class="waves">
+
+        <!-- Create waves -->
+        <div class="wave" id="wave1" style="--i:1"></div>
+        <div class="wave" id="wave2" style="--i:2"></div>
+        <div class="wave" id="wave3" style="--i:3"></div>
+        <div class="wave" id="wave4" style="--i:4"></div>
+
+    </section>
+
+    <!-- This div is used for inner functional -->
+    <div class="under-water">
+        <div class="water-counter"></div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="footer-copyright">
+
+        <a class="footer-link" href="https://twitter.com/"><i class="fab fa-twitter fa-lg"></i></a>
+        <a class="footer-link" href="https://github.com/iamAlinaaa"><i class="fab fa-github-square fa-lg"></i></a>
+        <a class="footer-link" href="mailto:my@mail"><i class="fas fa-envelope fa-lg"></i></a>
+
+
+        <p class="footer-paraghraph">© Copyright 2022 IamAlinaaa</p>
+
+    </footer>
+
+</body>
+
+</html>

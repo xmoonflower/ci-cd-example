@@ -1,0 +1,727 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Mali&family=Montserrat:wght@400;600;900&family=Nerko+One&family=Poppins&family=Ubuntu&display=swap');
+
+* {
+
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ////////////////////////////////////////////////////////// */
+
+:root {
+
+    --boxColor: white;
+    --waterFColor: #58a7e6;
+    --waterBColor: #d7eaf9;
+    --percentShadow:
+        -2px -2px 0 rgba(30, 128, 205, 0.6),
+        2px -2px 0 rgba(30, 128, 205, 0.6),
+        -2px 2px 0 rgba(30, 128, 205, 0.6),
+        2px 2px 0 rgba(30, 128, 205, 0.6);
+
+    --mainTextColorLighter: rgba(30, 128, 205, 0.2);
+    --mainTextColor: rgba(30, 128, 205, 0.6);
+    --mainTextColorDarker: rgba(30, 128, 205, 0.9);
+
+}
+
+.box {
+    height: 280px;
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--boxColor);
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.percent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: var(--percentShadow);
+    font-size: 64px;
+}
+
+.water {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    transform: translate(0, 100%);
+    background: var(--waterFColor);
+    transition: all .3s;
+}
+
+.water_wave {
+    width: 200%;
+    position: absolute;
+    /* bottom because in Y asis bottom at the top?  */
+    bottom: 100%;
+}
+
+.water_wave_back {
+    right: 0;
+    fill: var(--waterBColor);
+    animation: wave-back 1.4s infinite linear;
+}
+
+.water_wave_front {
+    left: 0;
+    fill: var(--waterFColor);
+    margin-bottom: -1px;
+    animation: wave-front .7s infinite linear;
+}
+
+@keyframes wave-front {
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes wave-back {
+    100% {
+        transform: translate(50%, 0);
+    }
+}
+
+/* /////////////////////////////////////////////////////////// */
+
+
+/* NAVBAR */
+
+.sticky {
+    position: sticky;
+    top: 0;
+
+}
+
+.glassy {
+    z-index: 1002;
+    /* background: rgba(233, 231, 248, 0.15); */
+    box-shadow: 0 2px 40px 0 rgba(129, 190, 237, 0.1);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border: 1px solid rgba(129, 190, 237, 0.1);
+    border-radius: 0 0 10px 10px;
+}
+
+.navbar-image {
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+
+}
+
+.nav-item {
+    padding: 0 18px;
+}
+
+.nav-link {
+    color: var(--mainTextColor);
+}
+
+.dropdown-item {
+    color: var(--mainTextColor);
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: var(--mainTextColorDarker);
+}
+
+.dropdown-item:hover,
+.dropdown-item:active {
+    color: var(--mainTextColorDarker);
+    background-color: var(--mainTextColorLighter);
+}
+
+
+
+.navbar-nav {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* END OF NAVBAR */
+
+/*  SECTION WATER MENU  */
+section.menu {
+    position: relative;
+    top: 40vh;
+    /* width: 100%;
+    height: 50vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.water-menu {
+    /* Glass effect */
+    background: rgba(215, 234, 249, 0.2);
+    box-shadow: 0 2px 40px 0 rgba(129, 190, 237, 0.3);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border: 1px solid rgba(129, 190, 237, 0.18);
+    border-radius: 20px;
+
+
+    display: inline-block;
+    width: 800px;
+    max-width: 800px;
+    height: 450px;
+    max-height: 450px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    position: fixed;
+
+}
+
+.water-info {
+    overflow: hidden;
+}
+
+.remained {
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+    color: var(--mainTextColor);
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.big-cup {
+    box-shadow: 0 8px 32px 0 rgba(30, 128, 205, 0.4);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border: 5px solid rgba(30, 128, 205, 0.5);
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    z-index: 1001;
+    overflow: hidden;
+    margin-left: 40px;
+}
+
+
+.water-inside {
+
+    box-shadow: 0 8px 32px 0 rgba(30, 128, 205, 0.1);
+    background: rgba(255, 255, 255, 0.4);
+    border: 5px solid rgba(30, 128, 205, 0.1);
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    z-index: 1002;
+    opacity: 0.6;
+    /* background-position: bottom; */
+    /* !!! We use overflow hidden to hide waves behind the circle */
+    overflow: hidden;
+    margin-left: 40px;
+
+}
+
+/* Goal and Drink Water Menu */
+
+.goal {
+    position: absolute;
+    right: 12%;
+    top: 20px;
+}
+
+.goal h1,
+.goal h3 {
+    font-family: "Ubuntu", sans-serif;
+    color: var(--mainTextColor);
+    text-align: center;
+}
+
+.drink-water {
+    text-align: center;
+}
+
+/*  END SECTION WATER MENU  */
+
+/* CAROUSEL */
+
+.slide {
+    max-width: 200px;
+}
+
+.carousel-item {
+    width: 200px;
+    height: 290px;
+    object-fit: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item h1 {
+    position: absolute;
+    bottom: 10px;
+    left: 40px;
+}
+
+.carousel-item span {
+    font-family: "Ubuntu", sans-serif;
+}
+
+.carousel-caption {
+    display: inline-flex;
+}
+
+.d-block {
+    position: absolute;
+    bottom: 80px;
+    left: 50px;
+    width: 50%;
+    overflow: hidden;
+}
+
+.image-center-1 {
+    left: 60px;
+}
+
+.image-center-3 {
+    left: 55px;
+}
+
+/* arrows  CAROUSEL*/
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    background-image: none;
+    position: absolute;
+    bottom: 80px;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-size: 55px;
+    color: var(--mainTextColor);
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 55px;
+    color: var(--mainTextColor);
+}
+
+/* end arrows */
+
+/* button-select */
+
+.buttons-select {
+    position: absolute;
+    bottom: 30px;
+    right: 135px;
+    display: inline-block;
+}
+
+.btn-select {
+    width: 50px;
+    height: 50px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border: 2px solid var(--mainTextColor);
+    color: var(--mainTextColor);
+    border-radius: 10px;
+    background: transparent;
+}
+
+.btn-select:hover {
+    background-color: rgba(30, 128, 205, 0.2);
+}
+
+.btn-select:active {
+    transform: scale(.9);
+    box-shadow: 0 3px 15px -2px;
+}
+
+/* end button-select */
+
+/* END CAROUSEL */
+
+/* SECTION WHITE AND WAVES  */
+section.waves {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wave {
+    /* position it absolute because it is in section
+    and specify where it is (bottom, left, right... */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url(../images/wave2.png);
+    /* AND backgroung is being REPEATED thta's why it moves on the X Axis */
+    background-size: 1000px 100px;
+    /* creating animation "animate */
+    animation: animate-wave 9s ease-in-out infinite;
+    /* in HTML we creat var --i for each wave with different numbers,
+    so waves moves in different time */
+    animation-delay: calc(var(--i) * 0.25s);
+    opacity: 0.5;
+}
+
+.wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    background-position-x: 400px;
+}
+
+.wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    background-position-x: 300px;
+    animation: animate-wave-2 7s linear infinite;
+}
+
+.wave#wave3 {
+    z-index: 998;
+    opacity: 0.2;
+    background-position-x: 200px;
+
+    animation: animate-wave-2 7s linear infinite;
+}
+
+.wave#wave4 {
+    z-index: 999;
+    opacity: 0.4;
+    background-position-x: 100px;
+}
+
+/* creating wave animations up and down*/
+@keyframes animate-wave {
+
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
+
+}
+
+@keyframes animate-wave-2 {
+    0% {
+        background-position-x: 0px;
+    }
+
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+/* END OF WAVES SECTION  */
+/* ////////////////////////////////// */
+
+/* UNDER WATER SECTION */
+/* BUBBLES */
+
+.under-water {
+    position: relative;
+}
+
+.under-water span {
+    /* placing of the bubbles */
+    position: absolute;
+    bottom: 50px;
+    background: transparent;
+    border-radius: 50%;
+    /* pointer events : set the cursor */
+    pointer-events: none;
+    /* inner shadow in box and color for bubbles*/
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.9);
+
+    /* linear animation - always the same speed */
+    animation: animate-bubbles 4s linear infinite;
+}
+
+/* For creating white highlight inside bubble */
+.under-water span::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* size and placement inside bubble */
+    transform: scale(0.25) translate(-70%, -70%);
+    /* creating this point-highlight radial-gradient */
+    background: radial-gradient(rgba(255, 255, 255, 0.7), transparent);
+    border-radius: 50%;
+}
+
+.water-counter {
+    font-family: "Ubuntu", sans-serif;
+    color: var(--mainTextColorDarker);
+    font-size: 1.3rem;
+}
+
+
+/* creating bubbles animations up and down */
+@keyframes animate-bubbles {
+
+    /* start */
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 1;
+    }
+
+    /* for bubbles to go far away and opacity:0 */
+    100% {
+        transform: translateY(-1200%);
+        opacity: 0;
+    }
+}
+
+/* #507fd6   #b7d5e4*/
+
+/* from dark to light  
+#537fd6, #6a8cd1, #8eb0f3  v1
+#537fd6, #6a8cd1, #85a7e9    v2*/
+.water-counter {
+    /* padding: 300px; */
+    padding: 33vh;
+    opacity: 1;
+    background-image: linear-gradient(180deg, #d7eaf9, #d7eaf9, #acd4f3);
+}
+
+/* ////////////////////////////////// */
+
+/* FOOTER */
+
+.footer-copyright {
+    background-color: #acd4f3;
+    padding: 7% 0 2% 0;
+    text-align: center;
+}
+
+.footer-link {
+    color: rgb(255, 255, 255);
+    padding: 0.75rem;
+}
+
+.footer-paraghraph {
+    color: white;
+    padding-top: 0.75rem;
+}
+
+.footer-link:hover {
+    color: rgba(72, 107, 177, 0.78);
+    padding: 0.75rem;
+}
+
+/* ///////////////////////////////////////// */
+
+
+/* CALCULATE DAILY WATER */
+
+.calculate-menu {
+    /* Glass effect */
+    background: rgba(215, 234, 249, 0.2);
+    box-shadow: 0 2px 40px 0 rgba(129, 190, 237, 0.3);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border: 1px solid rgba(129, 190, 237, 0.18);
+    border-radius: 20px;
+
+    display: inline-flex;
+    width: 800px;
+    max-width: 800px;
+    height: 450px;
+    max-height: 450px;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    position: absolute;
+
+}
+
+.calculate-box-1 {
+    width: 100%;
+    height: 100%;
+    padding: 25px 20px 30px 50px;
+}
+
+label.gender-choose {
+    user-select: none;
+}
+
+.form-check {
+    padding-left: 0px;
+}
+
+input[type="radio"] {
+    /* displays circle radio button */
+    display: none;
+}
+
+input[type="radio"]+.gender-choose {
+    z-index: 10;
+    margin: 0 10px 0 0;
+    position: relative;
+    color: var(--mainTextColorLighter);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid var(--mainTextColorLighter);
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+input[type="radio"]:checked+.gender-choose {
+    border: 2px solid var(--mainTextColor);
+    color: var(--mainTextColor);
+    background-color: var(--mainTextColorLighter);
+}
+
+
+input[type="radio"]+.gender-choose:active {
+
+    transform: scale(.9);
+    box-shadow: 0 3px 15px -2px;
+}
+
+
+input[type="radio"]+.gender-choose {
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.user-info {
+    padding: 5px 0;
+    position: relative;
+    width: 280px;
+}
+
+.user-info .form-control {
+    background-color: white;
+    /* border: 0; */
+    border: 2px var(--mainTextColorLighter) solid;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--mainTextColor);
+    border-radius: 10px;
+
+}
+
+/* INSIDE CALCULATE DAILY WATER (REMOVE BOOTSTRAP OUTLINE WHEN CLICKED) */
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+    box-shadow: inset 0 -1px 0 #ddd;
+}
+
+.user-info .form-control:focus {
+    border: 2px var(--mainTextColor) solid;
+}
+
+.info-titles {
+    font-size: 20px;
+    font-family: "Ubuntu", sans-serif;
+    color: var(--mainTextColor);
+    /* font-weight: bold; */
+}
+
+.btn-calculate {
+    margin: 12px 10px 0 0;
+    position: relative;
+    color: #afc0d1;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid var(--mainTextColor);
+    color: var(--mainTextColor);
+    background-color: var(--mainTextColorLighter);
+    border-radius: 10px;
+    padding: 5px 96px;
+    font-size: 20px;
+}
+
+.btn-calculate:hover,
+.btn-calculate:focus {
+    box-shadow: inset 0 -1px 0 var(--mainTextColorLighter);
+    border: 2px var(--mainTextColor) solid;
+    color: var(--mainTextColor);
+    background-color: var(--mainTextColorLighter);
+}
+
+.btn-calculate:active {
+    transform: scale(1.02);
+}
+
+
+/* //////////////////////////////////// */
+
+.calculate-box-2 {
+    width: 100%;
+    height: 100%;
+    padding: 25px 20px 20px 20px;
+    position: relative;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainTextColor);
+    font-size: 25px;
+}
+
+.btn-drink-water {
+    margin-top: 36px;
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
+}
+
+/* .calculate-box-2 img {
+
+} */
