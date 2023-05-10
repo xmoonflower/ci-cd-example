@@ -45,7 +45,7 @@ app.get("/", function (request, response) {
   //   if (!err) {
   //     if (!foundItem) {
   //       /* if no item exists (or it was deleted) we create new one and redirect to "/" again
-  //       CREATE NEW MONGOOSE DOCUMENT 
+  //       CREATE NEW MONGOOSE DOCUMENT
   //       Create Item with default data everytime server started with no items inside Water collection
   //       or just after "/remove" command and redirect here again */
 
@@ -100,8 +100,6 @@ so we need to change data we get from ajax with JSON.stringify into Number*/
   //     percentResponse: percentDB,
   //   });
   // });
-
-  
 
   // binding values to variable after first loading
   // remainedWater = request.body.remainedWater;
