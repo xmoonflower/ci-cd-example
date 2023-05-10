@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/1c9ad4b785.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- jQuery and JS from CDN (should be placed before JS and only in body section) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+    <!-- !! added type="text/javascript" for BUBBLES -->
+    <script src="js/calculate.js" type="text/javascript" defer></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Water</title>
+</head>
+
+<body>
+
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg sticky glassy ">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-image">
+                <img src="images/water-drop.png" width="40%" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://localhost:3000">Drink water!</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Your progress
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="http://localhost:3000/calculate">Calculate your water
+                                    goal</a></li>
+                            <li><a class="dropdown-item" href="#">Remove your progress</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="http://localhost:3000/calculate#about">About project</a>
+                            </li>
+                            <li><a class="dropdown-item" href="http://localhost:3000/calculate#contacts">Contacts</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- SECTION WATER MENU -->
+    <section class="menu">
+        <div class="calculate-menu">
+
+            <!-- Creating a form for user input -->
+            <form action="/calculate" method="post" id="calculateWaterGoal">
+                <div class="calculate-box-1">
+                    <div class="user-gender user-info">
+                        <label class="info-titles">Your Gender</label>
+                        <div class="form-check">
+                            <input type="radio" id="male" checked="checked" value="radioMale" name="radioForm">
+                            <label class="gender-choose" for="male">Male</label>
+                            <input type="radio" id="female" value="radioFemale" name="radioForm">
+                            <label class="gender-choose" for="female">Female</label>
+                        </div>
+
+                    </div>
+                    <div class="user-age user-info">
+                        <label class="info-titles">Your Age</label>
+                        <input id="user-age" class="form-control" type="number" name="ageForm">
+                    </div>
+
+                    <div class="user-weight user-info">
+                        <label class="info-titles">Your Weight (in kg)</label>
+                        <input id="user-weight" class="form-control" type="number" name="weightForm">
+                    </div>
+
+                    <div class="user-activity user-info">
+                        <label class="info-titles">Your Sport Activity (in hours)</label>
+                        <input id="user-activity" class="form-control" type="number" name="activityForm">
+                    </div>
+
+                    <div class="user-btn user-info">
+                        <button type="submit" class="btn btn-calculate" name="button">Calculate</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+
+            <div class="calculate-box-2 calculate-result info-titles">
+                <!-- <div  class="calculate-result info-titles"> -->
+                <h3 id="user-goal">Default water goal: 2L</h3>
+                <img src="../images/cute-water-drop.png" style="width: 80%;">
+                <!-- <div class="calculate-image"><img src="../images/cute-water-drop.png" style="width: 75%;"></div> -->
+                <a href="http://localhost:3000"><button type="" class="btn btn-calculate btn-drink-water"
+                        name="button">Drink Water!</button></a>
+                <!-- </div> -->
+
+            </div>
+
+
+
+
+
+        </div>
+    </section>
+
+    <!-- SECTION WHITE AND WAVES -->
+    <section class="waves">
+
+        <!-- Create waves -->
+        <div class="wave" id="wave1" style="--i:1"></div>
+        <div class="wave" id="wave2" style="--i:2"></div>
+        <div class="wave" id="wave3" style="--i:3"></div>
+        <div class="wave" id="wave4" style="--i:4"></div>
+
+    </section>
+
+
+    <!-- This div is used for inner functional -->
+    <section id="about" class="under-water">
+        <div class="water-counter">
+            <p>This is a very simple water drinking desktop app to monitor how much water you consume. All you need is to
+            enter your current weight, age, gender and sport activity hours per day, and Water app will help you
+            determine how much water your body needs daily. </p>
+            <p>Each time you take a glass of water, you just need to choose an amount of water you drink and press "+"
+            button to update your progress. If you made a mistake or accidentally added more water than you've drank,
+            just choose amount of liquid you want to remove and press "-" button.</p>
+            <p>You can also <i>drink 2 liters of water by default.</i></p>
+            <p>Drinking 2 litres of water a day cleanses toxins from your body, gives you energy and helps with fatigue.
+            Staying hydrated can bring a good dose of brain power and vitality to your day. It also helps your kidneys
+            regain balance.</p>
+            <p>But we recommend you to calculate your own water balance that depends on your activity and weight.</p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer id="contacts" class="footer-copyright">
+
+        <a class="footer-link" href="https://twitter.com/"><i class="fab fa-twitter fa-lg"></i></a>
+        <a class="footer-link" href="https://github.com/iamAlinaaa"><i class="fab fa-github-square fa-lg"></i></a>
+        <a class="footer-link" href="mailto:my@mail"><i class="fas fa-envelope fa-lg"></i></a>
+
+
+        <p class="footer-paraghraph">© Copyright 2022 IamAlinaaa</p>
+
+    </footer>
+
+
+</body>
+
+</html>
