@@ -44,7 +44,6 @@ $(window).on("load", function () {
   });
 });
 
-
 // FOR BUTTONS; UPDATING PERCENTS AND WATER LEVEL; CALCULATING REMAINED
 
 const addButton = document.querySelector(".btn-select.add");
@@ -84,7 +83,6 @@ addButton.addEventListener("click", function () {
   });
 });
 
-
 removeButton.addEventListener("click", function () {
   let activeCarouselItem = document.querySelector(".carousel-item.active");
   let [mlAmount] = activeCarouselItem.textContent.trim().split(" ");
@@ -116,7 +114,6 @@ removeButton.addEventListener("click", function () {
     },
   });
 });
-
 
 function updateWater(waterMl) {
   currentWater += waterMl;
@@ -161,7 +158,6 @@ function updateWater(waterMl) {
   }
   return waterRemained;
 }
-
 
 function updatePercents(waterMl) {
   // use ajax here to send percents to the server
@@ -243,3 +239,5 @@ function createBubble() {
 setInterval(createBubble, 900);
 
 // //////////////////////////////////////
+
+module.exports = { updateWater, updatePercents };

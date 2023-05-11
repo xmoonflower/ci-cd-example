@@ -147,6 +147,8 @@ app.get("/remove", function (request, response) {
   response.redirect("/");
 });
 
-app.listen(port, function () {
+const server = app.listen(port, function () {
   console.log("Server is working on port 3000");
 });
+
+module.exports = { server };
